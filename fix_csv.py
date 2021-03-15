@@ -4,7 +4,7 @@ import sys
 import re
 
 def fix_csv(name):
-    with open(name, 'r') as f:
+    with open(name, 'r', encoding='utf8') as f:
         s = f.read()
         if ';' in s:
             s = s.replace(',', '.')
@@ -12,7 +12,7 @@ def fix_csv(name):
         else:
             print(name, "is already fine")
             return
-        with open(name, 'w') as ff:
+        with open(name, 'w', encoding='utf8') as ff:
             ff.write(s)
             ff.close()
     print(name, "is now a correct CSV")
